@@ -187,6 +187,14 @@
 			  })
 			}
 
+			$('.resetMap').click(function() {
+				$('.spotRow').removeClass("selectedRow")
+				markerLayer = Sheetsee.addMarkerLayer(geoJSON, map, 13)
+				addPopups(map, markerLayer)
+				$('#latestSpot').css("display", "inline")
+			  $('#selectedSpot').css("display", "none")
+			})
+
 			function matchGeoJSONbyRowNumber(rowNumber, geoJSON, gdata, highlightColor) {
 		 		geoJSON.forEach(function (d) {
 		 			if (d.properties["marker-color"] === highlightColor) {
@@ -195,7 +203,6 @@
 		 			}
 		    	for (var key in d.opts) {
 		      	var value = d.opts[key].toString().toLowerCase()
-		      	console.log(value)
 		   			if (key === 'rowNumber' && value.match(rowNumber.toString().toLowerCase())) {
 		     	    d.properties["marker-color"] = highlightColor
 		     	    return geoJSON
@@ -204,13 +211,6 @@
 		    })
 	 		}
 
-			$('.resetMap').click(function() {
-				$('.spotRow').removeClass("selectedRow")
-				markerLayer = Sheetsee.addMarkerLayer(geoJSON, map, 13)
-				addPopups(map, markerLayer)
-				$('#latestSpot').css("display", "inline")
-			  $('#selectedSpot').css("display", "none")
-			})
 
 			
 
