@@ -111,10 +111,11 @@
 			  $('#latestSpot').css("display", "none")
 			  $('#selectedSpot').html(selectedSpot).css("display", "inline")
 			  var selectedCoords = [dataElement[0].lat, dataElement[0].long]
-			  matchGeoJSONbyRowNumber(rowNumber, geoJSON, gData, "#FF4646")
-			  var markerLayer = Sheetsee.addMarkerLayer(geoJSON, map, 13)
+			  //matchGeoJSONbyRowNumber(rowNumber, geoJSON, gData, "#FF4646")
+			  console.log(geoJSON)
+			  var markerLayer = Sheetsee.addMarkerLayer(geoJSON, map, 15)
 				addPopups(map, markerLayer)
-			  map.panTo(selectedCoords, 13)
+			  map.panTo(selectedCoords, 15)
 	 		})
 
 	  	// so that the first map and info that loads
@@ -172,7 +173,7 @@
 			  $('#' + rowNumber).addClass("selectedRow")
 			  // using row number, find that marker in the geoJSON, give it
 			  // the selected marker color
-			  matchGeoJSONbyRowNumber(rowNumber, geoJSON, gData, "#FF4646")
+			  //matchGeoJSONbyRowNumber(rowNumber, geoJSON, gData, "#FF4646")
 			 //  var markerLayer = Sheetsee.addMarkerLayer(geoJSON, map, 13)
 				// addPopups(map, markerLayer)
 				// using row number, get the data for the selected spot
