@@ -1,13 +1,13 @@
 /* Page Specific CSS */
 
-body {font-family: Lato; background: #fff; color: #333; font-size: 16px; border: 52px #F8F8F8 solid; margin: 0px; padding: 20px 20px 200px 20px;}
+body {font-family: Lato; background: #fff; color: #333; font-size: 16px; margin: 0px; padding: 20px 20px 200px 20px;}
 h1 {font-size: 80px; font-family: Amatic SC; font-weight: normal; margin: 0px;}
 h2 {font-size: 50px; font-family: Amatic SC; font-weight: normal; margin: 11px 0px;}
 h3 {font-family: Amatic SC; font-size: 30px; margin: 10px 0px;}
 h4 {font-family: Lato; font-size: 24px;}
 
 img {width: 100%;} 
-p a, a {color: #333; text-decoration: none; padding-bottom: 0px; border-bottom: 1px #FD9393 solid;}
+p a, a {color: #333; text-decoration: none; padding-bottom: 0px; border-bottom: 1px #a9def5 solid;}
 a:hover {color: #47CCFC;}
 small {padding: 10px 0px; font-size: 10px;}
 p {margin: 0px; padding: 0px; font-size: 12px;}
@@ -20,7 +20,7 @@ code {font-family: "Consolas", "Ubuntu Mono", monospace; line-height: 22px; font
 
 .red-text {color: #FD9393;}
 
-#map {height: 400px; max-width: 530px; min-width: 300px; background: #DADADA;}
+#map {height: 400px; min-width: 300px; background: #DADADA;}
 #map a {border: none;}
 
 .container {margin: 24px 0px;}
@@ -38,28 +38,32 @@ ul.nav li a:hover {border-bottom: 1px #FD9393 solid;}
 
 .button {padding: 5px 5px; background-color: #BEBEBE; font-size: 10px; color: #fff;}
 .button:hover {background: #B9FCFC; color: #47CCFC;}
-.fauxButton {padding: 5px 5px; background-color: #FF4646; font-size: 11px; color: #fff; display: inline;}
-.fauxButton .selected {background-color: #FF4646;}
-.colorText {color: #FF4646; text-transform: uppercase; font-weight: 700;}
+.fauxButton {padding: 5px 5px; background-color: #3FB5E8; font-size: 11px; color: #fff; display: inline;}
+.fauxButton .selected {background-color: #3FB5E8;}
+.colorText {color: #3FB5E8; text-transform: uppercase; font-weight: 700;}
 
 .leaflet-popup-content h2 {font-family: Lato; font-size: 14px; text-transform: uppercase;}
 
-#rightSide {height: 400px; max-width: 350px; width: 100%; float: right; padding-top: 5px;}
+#details {width: 100%; padding-top: 30px;}
 #selectedSpot {display: none;}
 #latestSpot ul, #selectedSpot ul {list-style: none; margin-top: 12px 0px; padding: 0px;}
 .category {text-transform: uppercase; font-size: 9px; letter-spacing: .2em; padding-right: 6px;}
 
-#info p {font-size: 14px; padding: 4px; line-height: 19px; font-weight: 300;}
-#info {border-top: 4px #F8F8F8 solid;}
+#swingtable {margin-top: 50px;}
+#findswings {float: left;}
+#mapfilter {padding: 5px 0 0 160px;}
 
-#hackSpotsTable {cursor: pointer; background: #fff; overflow-x: auto; padding-bottom: 20px;}
-#hackSpotsTable table {min-width: 900px;}
-#hackSpotsTable .tHeader:hover {color: #FF4646;}
+#info p {font-size: 14px; padding: 4px; line-height: 19px; font-weight: 300;}
+#info {margin-top: 50px;}
+
+#swingSpotsTable {cursor: pointer; background: #fff; overflow-x: auto; padding-bottom: 20px;}
+#swingSpotsTable table {min-width: 900px;}
+#swingSpotsTable .tHeader:hover {color: #3FB5E8;}
 .tHeader::after {content: " \2193 \2191 "; font-size: 10px; padding-left: 3px;}
-.spotRow:hover {color: #FF4646;}
+.spotRow:hover {color: #3FB5E8;}
 .spotRow {border-left: 3px solid #ff00ff;}
 .hideRow {display: none;}
-.selectedRow {color: #FF4C0D;}
+.selectedRow {color: #3FB5E8;}
 
 .swingpicture {
   margin-top: 20px;
@@ -67,9 +71,9 @@ ul.nav li a:hover {border-bottom: 1px #FD9393 solid;}
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 320px) and (max-width: 1024px) {
-  body {border: 20px #F8F8F8 solid; margin: 0px; padding: 20px 20px 80px 20px;}
+  body {margin: 0px; padding: 20px 20px 80px 20px;}
   #tableFilter, .clear, .resetMap {display: none;}
   #wrapper {max-width: 460px; padding-top: 20px;}
-  #hackSpotsTable, #map {min-width: 224px;}
+  #swingSpotsTable, #map {min-width: 224px;}
 }
 

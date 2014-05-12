@@ -7,7 +7,6 @@
 		<script type="text/javascript" src='js/tabletop.js'></script>
 		<script type="text/javascript" src='js/sheetsee.js'></script>
 		<script type="text/javascript" src='js/leaflet.markercluster.js'></script>
-		<link rel="shortcut icon" href="https://raw.github.com/jlord/hack-spots/master/favico.png"/>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<link href='http://api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css' rel='stylesheet' />
@@ -20,35 +19,45 @@
 	</head>
 <body>
 	<div id="wrapper">
-		<h1>Rope Swings of the Bay Area</h1>
+		<h1>Rope Swing Map</h1>
 		<div>
 			<ul class="nav">
-				<li><strong>Naturally occuring rope swings around the Bay.</strong></li>
+				<li><strong>Naturally occuring rope swings found by humans.</strong></li>
 				<li>by</li>
 				<li><a href="http://www.twitter.com/tinygood" target="_blank">@TinyGood</a></li>
 			</ul>
 		</div>
 		<div class="container">
-			<div id="rightSide">
+			<div id="map"></div>
+			<div id="details">
 				<div id="latestSpot"></div>
 				<div id="selectedSpot"></div>
 			</div>
-			<div id="map"></div>
 		</div>
-		<div class="container">
-			<input id="tableFilter" type="text" placeholder="filter by.."></input>
-			<span class="clear button">Clear</span> <span class="resetMap button">Reset Map</span>
-			<span class="noMatches">no matches</span>
-			<div id="hackSpotsTable"></div>
+		<div id="swingtable" class="container">
+			<h3 id="findswings">Find more swings!</h3>
+			<div id="mapfilter">
+				<input id="tableFilter" type="text" placeholder="filter by.."></input>
+				<span class="clear button">Clear</span> <span class="resetMap button">Reset Map</span>
+				<span class="noMatches">no matches</span>
+			</div>
+			<div id="mapSpotsTable"></div>
 		</div>
 		<div id="info" class="container">
 			<h3>Contribute!</h3>
-			<p>This website is hooked up to <a href="https://docs.google.com/spreadsheet/ccc?key=0At0clzgRpjZMdEdjTTVTUkZ5NUVzRUg3eDJpM3ZXa0E#gid=0" target="_blank">this Google Spreadsheet</a>, which I've shared, so click and add your favorite swings to the bottom of the list! For the map you'll need to <strong>get the lat and long</strong> of the spot, you can get that <a href="http://www.latlong.net/" target="_blank">here</a>.</p> 
+			<p>This website is hooked up to <a href="https://docs.google.com/spreadsheet/ccc?key=0At0clzgRpjZMdEdjTTVTUkZ5NUVzRUg3eDJpM3ZXa0E#gid=0" target="_blank">this Google Spreadsheet</a>, which I've shared, so click and add your favorite swings to the bottom of the list! For the map you'll need to <strong>get the latitude and longitude</strong> of the spot, you can get that <a href="http://www.latlong.net/" target="_blank">here</a>.</p>
+			<p>Submit you own swing with <a href="https://docs.google.com/forms/d/1wUOJflH9It-oafpcyc03hgTBKdogJeWhHLp9NeWgTBA/viewform"> this form </a> and we'll get it added as quickly as possible.
+		</div>
+		<div id="thanks">
+			<h3> Special Thanks </h3>
+			<p> Thanks to all the great open source work that made this possible. The base of this site was forked from <a href="https://github.com/jlord/hack-spots">Jessica Lord's Hack Spots</a> example showcasing the power of <a href="https://jlord.github.io/sheetsee.js/">Sheetsee.js</a>, a client-side Javascript Library for connecting to Google Spreadsheets and creating awesome data visualizations from the information in tables.
+			</p>
 
 		</div>
+
 	</div><!-- end wrapper -->
 
-	<script id="hackSpotsTable" type="text/html">
+	<script id="mapSpotsTable" type="text/html">
 		<table>
 		<tr><th class="tHeader">Name</th><th class="tHeader">City</th><th class="tHeader">State</th><th class="tHeader">Contributer</th><th class="">Notes</th></tr>
 		  {{#rows}}
@@ -62,8 +71,6 @@
 				<h4 class="fauxButton">MOST RECENT SPOT</h4>
 				<h2>{{name}}</h2>
 				<p class="colorText">{{city}}, {{state}}</p>
-				
-				<img class="swingpicture" src="http://placekitten.com/g/300/300"/>
 		  	
 		  {{/rows}}
 	</script>
@@ -77,8 +84,6 @@
 			<h4 class="fauxButton">SELECTED SPOT</h4>
 			<h2>{{name}}</h2>
 			<p class="colorText">{{city}}, {{state}}</p>
-
-			<img class="swingpicture" src="http://placekitten.com/g/300/300"/>
 
 	  {{/rows}}
 	</script>
@@ -95,8 +100,8 @@
 	  function showInfo(data) {
 	  	gData = data
 	  	// make the table, and the search bar
-	  	Sheetsee.makeTable(gData, "#hackSpotsTable")
-	  	Sheetsee.initiateTableFilter(gData, "#tableFilter", "#hackSpotsTable")
+	  	Sheetsee.makeTable(gData, "#mapSpotsTable")
+	  	Sheetsee.initiateTableFilter(gData, "#tableFilter", "#mapSpotsTable")
 
 	  	// when someone clicks on a row, highlight it and
 	  	// re-center the map
@@ -111,7 +116,7 @@
 			  $('#latestSpot').css("display", "none")
 			  $('#selectedSpot').html(selectedSpot).css("display", "inline")
 			  var selectedCoords = [dataElement[0].lat, dataElement[0].long]
-			  matchGeoJSONbyRowNumber(rowNumber, geoJSON, gData, "#FF4646")
+			  matchGeoJSONbyRowNumber(rowNumber, geoJSON, gData, "#3FB5E8")
 			  var markerLayer = Sheetsee.addMarkerLayer(geoJSON, map, 15)
 				addPopups(map, markerLayer)
 			  map.panTo(selectedCoords, 15)
@@ -149,7 +154,7 @@
 			var optionsJSON = ["name", "city", "rowNumber"]
 		  var geoJSONnoHL = Sheetsee.createGeoJSON(gData, optionsJSON)
 		  // change the color of the most recently added spot's marker
-		  var geoJSON = highlightLastMarker(geoJSONnoHL, "#FF4646")
+		  var geoJSON = highlightLastMarker(geoJSONnoHL, "#3FB5E8")
 		  // create map, tilelayer (map background), markers and popups
 			var map = Sheetsee.loadMap("map")
 			Sheetsee.addTileLayer(map, 'examples.map-20v6611k')
@@ -172,7 +177,7 @@
 			  $('#' + rowNumber).addClass("selectedRow")
 			  // using row number, find that marker in the geoJSON, give it
 			  // the selected marker color
-			  matchGeoJSONbyRowNumber(rowNumber, geoJSON, gData, "#FF4646")
+			  matchGeoJSONbyRowNumber(rowNumber, geoJSON, gData, "#3FB5E8")
 			 //  var markerLayer = Sheetsee.addMarkerLayer(geoJSON, map, 13)
 				// addPopups(map, markerLayer)
 				// using row number, get the data for the selected spot
@@ -197,7 +202,7 @@
 			function matchGeoJSONbyRowNumber(rowNumber, geoJSON, gdata, highlightColor) {
 		 		geoJSON.forEach(function (d) {
 		 			if (d.properties["marker-color"] === highlightColor) {
-		 				var origColor = gData[0].hexcolor
+		 				var origColor = "gData[0].hexcolor"
 		 				d.properties["marker-color"] = origColor
 		 			}
 		    	for (var key in d.opts) {
