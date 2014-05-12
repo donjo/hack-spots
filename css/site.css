@@ -51,10 +51,13 @@ ul.nav li a:hover {border-bottom: 1px #FD9393 solid;}
 
 #swingtable {margin-top: 50px;}
 #findswings {float: left;}
-#mapfilter {padding: 5px 0 0 160px;}
+#mapfilter {padding: 6px 0 0 160px;}
 
 #info p {font-size: 14px; padding: 4px; line-height: 19px; font-weight: 300;}
 #info {margin-top: 50px;}
+
+#thanks p {font-size: 14px; padding: 4px; line-height: 19px; font-weight: 300;}
+#thanks {margin-top: 20px;}
 
 #swingSpotsTable {cursor: pointer; background: #fff; overflow-x: auto; padding-bottom: 20px;}
 #swingSpotsTable table {min-width: 900px;}
