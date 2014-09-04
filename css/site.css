@@ -6,7 +6,7 @@ h2 {font-size: 50px; font-family: Amatic SC; font-weight: normal; margin: 11px 0
 h3 {font-family: Amatic SC; font-size: 30px; margin: 10px 0px;}
 h4 {font-family: Lato; font-size: 24px;}
 
-img {width: 100%;} 
+img {width: 100%;}
 p a, a {color: #333; text-decoration: none; padding-bottom: 0px; border-bottom: 1px #a9def5 solid;}
 a:hover {color: #47CCFC;}
 small {padding: 10px 0px; font-size: 10px;}
@@ -26,8 +26,8 @@ code {font-family: "Consolas", "Ubuntu Mono", monospace; line-height: 22px; font
 .container {margin: 24px 0px;}
 #tableFilter {margin: 12px 0px; border: none; border-bottom: 1px solid #333; background-color: transparent; padding: 0px; font-family: Lato; color: #333; font-size: 13px; height: 22px;}
 
-::selection {background: #E5FF1D;} 
-::-moz-selection {background: #E5FF1D;}
+::selection {background: #b8e4f7;}
+::-moz-selection {background: #b8e4f7;}
 
 ul.nav {list-style: none; margin: 0px; padding: 0px;}
 ul.nav li {display: inline; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; padding-right: 4px;}
@@ -37,7 +37,7 @@ ul.nav li a:hover {border-bottom: 1px #FD9393 solid;}
 #wrapper {margin: 0px auto; max-width: 900px; padding-top: 40px; /*margin-left: 250px;*/}
 
 .button {padding: 5px 5px; background-color: #BEBEBE; font-size: 10px; color: #fff;}
-.button:hover {background: #B9FCFC; color: #47CCFC;}
+.button:hover {background: #3FB5E8; color: #FFF;}
 .fauxButton {padding: 5px 5px; background-color: #3FB5E8; font-size: 11px; color: #fff; display: inline;}
 .fauxButton .selected {background-color: #3FB5E8;}
 .colorText {color: #3FB5E8; text-transform: uppercase; font-weight: 700;}
@@ -73,10 +73,21 @@ ul.nav li a:hover {border-bottom: 1px #FD9393 solid;}
   max-width: 250px;
 }
 
+#add-swing.button {
+  font-size: 14px;
+  padding: 5px 0px;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
+td#add-swing {
+  padding-top: 5px;
+}
+
 @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 320px) and (max-width: 1024px) {
   body {margin: 0px; padding: 20px 20px 80px 20px;}
   #tableFilter, .clear, .resetMap {display: none;}
   #wrapper {max-width: 460px; padding-top: 20px;}
   #swingSpotsTable, #map {min-width: 224px;}
 }
-

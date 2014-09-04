@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<title>Rope Swing Map</title>
-		<script type="text/javascript" src="js/ICanHaz.js"></script> 
+		<script type="text/javascript" src="js/ICanHaz.js"></script>
 		<script type="text/javascript" src='http://api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.js'></script>
 		<script type="text/javascript" src='js/jquery.js '></script>
 		<script type="text/javascript" src='js/tabletop.js'></script>
@@ -11,9 +11,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<link href='http://api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css' rel='stylesheet' />
 		<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic'>
-		<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Amatic+SC:400,700'>		
-		<link media="screen" rel="stylesheet" type="text/css" href="css/style.css"> 
-		<link media="screen" rel="stylesheet" type="text/css" href="css/site.css"> 
+		<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Amatic+SC:400,700'>
+		<link media="screen" rel="stylesheet" type="text/css" href="css/style.css">
+		<link media="screen" rel="stylesheet" type="text/css" href="css/site.css">
 		<link rel="stylesheet" href="css/MarkerCluster.css" />
 		<link rel="stylesheet" href="css/MarkerCluster.Default.css" />
 	</head>
@@ -46,7 +46,6 @@
 		<div id="info" class="container">
 			<h3>Contribute!</h3>
 			<p>This website is hooked up to <a href="https://docs.google.com/spreadsheet/ccc?key=0At0clzgRpjZMdEdjTTVTUkZ5NUVzRUg3eDJpM3ZXa0E#gid=0" target="_blank">this Google Spreadsheet</a>, which I've shared, so click and add your favorite swings to the bottom of the list! For the map you'll need to <strong>get the latitude and longitude</strong> of the spot, you can get that <a href="http://www.latlong.net/" target="_blank">here</a>.</p>
-			<p>Submit you own swing with <a href="https://docs.google.com/forms/d/1wUOJflH9It-oafpcyc03hgTBKdogJeWhHLp9NeWgTBA/viewform"> this form </a> and we'll get it added as quickly as possible.
 		</div>
 		<div id="thanks">
 			<h3> Special Thanks </h3>
@@ -63,6 +62,7 @@
 		  {{#rows}}
 		  	<tr id="{{rowNumber}}" class="spotRow"><td>{{name}}</td><td>{{city}}</td><td>{{state}}</td><td>{{contributer}}</td><td>{{notes}}</td></tr>
 		  {{/rows}}
+			<tr class="spotRow"><td id="add-swing"><a id="add-swing" class="button" href="https://docs.google.com/spreadsheet/ccc?key=0At0clzgRpjZMdEdjTTVTUkZ5NUVzRUg3eDJpM3ZXa0E#gid=0">Add a swing!</td><td>??</td><td>??</td><td>You!</td><td>Imagine all the things you could write here.</td></tr>
 	  </table>
 	</script>
 
@@ -71,7 +71,7 @@
 				<h4 class="fauxButton">MOST RECENT SPOT</h4>
 				<h2>{{name}}</h2>
 				<p class="colorText">{{city}}, {{state}}</p>
-		  	
+
 		  {{/rows}}
 	</script>
 
@@ -92,8 +92,8 @@
 	  document.addEventListener('DOMContentLoaded', function() {
 	  	var gData
 	  	var URL = "0At0clzgRpjZMdEdjTTVTUkZ5NUVzRUg3eDJpM3ZXa0E"
-			Tabletop.init( { key: URL, callback: showInfo, simpleSheet: true } ) 
-		}) 
+			Tabletop.init( { key: URL, callback: showInfo, simpleSheet: true } )
+		})
 
 		// so long, so messy
 
@@ -130,7 +130,7 @@
 	  		var startWithLatestRow = data.reverse()
 	  		startWithLatestRow.forEach(function(row){
 	  			if (!row.lat || !row.long || !row.name || !row.contributer || !row.city || !row.state ) return
-	  			else latestCompleteSpot.push(row) 
+	  			else latestCompleteSpot.push(row)
 	  		})
 	  		return latestCompleteSpot[0]
 	  	}
@@ -169,7 +169,7 @@
 					marker.bindPopup(popupContent, {closeButton: false,})
 				})
 			  markerLayer.on('click', function(e) {
-			  // clear any selected rows	
+			  // clear any selected rows
 				$('.spotRow').removeClass("selectedRow")
 				// get row number of selected marker
 			  var rowNumber = e.layer.feature.opts.rowNumber.toString()
@@ -185,7 +185,7 @@
 			  // take those details and re-write the selected spot section
 				var selectedSpot = ich.selectedSpot({
 				  rows: dataElement
-			 	}) 
+			 	})
 			  $('#latestSpot').css("display", "none")
 			  $('#selectedSpot').html(selectedSpot).css("display", "inline")
 			  })
@@ -216,7 +216,7 @@
 	 		}
 
 
-			
+
 
  	}
 
