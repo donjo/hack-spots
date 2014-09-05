@@ -34,7 +34,7 @@ ul.nav li {display: inline; font-size: 10px; letter-spacing: .1em; text-transfor
 ul.nav li a {border: none;}
 ul.nav li a:hover {border-bottom: 1px #FD9393 solid;}
 
-#wrapper {margin: 0px auto; max-width: 900px; padding-top: 40px; /*margin-left: 250px;*/}
+#wrapper {margin: 0px auto; max-width: 900px; padding-top: 30px; /*margin-left: 250px;*/}
 
 .button {padding: 5px 5px; background-color: #BEBEBE; font-size: 10px; color: #fff;}
 .button:hover {background: #3FB5E8; color: #FFF;}
@@ -49,7 +49,7 @@ ul.nav li a:hover {border-bottom: 1px #FD9393 solid;}
 #latestSpot ul, #selectedSpot ul {list-style: none; margin-top: 12px 0px; padding: 0px;}
 .category {text-transform: uppercase; font-size: 9px; letter-spacing: .2em; padding-right: 6px;}
 
-#swingtable {margin-top: 50px;}
+#swingtable {margin-top: 30px;}
 #findswings {float: left;}
 #mapfilter {padding: 6px 0 0 160px;}
 
